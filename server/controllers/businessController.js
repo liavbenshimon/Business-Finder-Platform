@@ -141,10 +141,10 @@ export const deleteBusiness = async (req, res) => {
       return res.status(403).json({ message: 'Unauthorized action' });
     }
 
-    await business.remove();
+    await Business.deleteOne({_id:businessId});
     res.status(200).json({ message: 'Business deleted successfully' });
   } catch (err) {
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', err });
   }
 };
 

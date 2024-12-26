@@ -7,9 +7,9 @@ const router = express.Router();
 router.post('/',protect, createBusiness);
 router.get('/', getAllBusinesses);
 router.get('/:businessId', getBusinessById);
-router.post('/:businessId/subscribe', subscribeToBusiness);
-router.put('/:businessId', createBusinessUpdate);
-router.delete('/:businessId/unsubscribe', unsubscribeFromBusiness);
-router.delete('/:businessId', deleteBusiness);
+router.post('/:businessId/subscribe',protect, subscribeToBusiness);
+router.put('/:businessId',protect, createBusinessUpdate);
+router.delete('/:businessId/unsubscribe',protect, unsubscribeFromBusiness);
+router.delete('/:businessId',protect, deleteBusiness);
 
 export default router;
